@@ -20,6 +20,7 @@ public class PlayerController : BaseController
         // 두 방향키의 조합을 단위벡터로 생성
         // 단위벡터로 만드는 이유 : 1,0,-1로 이동하지만 대각선(1,1)에서 크기 1.414 -> 대각선에서 속도 빨라짐. 단위벡터로 모든 방향에서 같은 속도를 만들어준다
         moveDirection = new Vector2(upDown, rightLeft).normalized;
+        
         if (Input.GetKey(KeyCode.LeftShift)) moveDirection *= runSpeed; 
 
         Vector2 mousePosition = Input.mousePosition;

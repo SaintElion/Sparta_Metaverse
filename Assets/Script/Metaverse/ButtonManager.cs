@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChangeManager : MonoBehaviour
+public class ButtonManager : MonoBehaviour
 {
     private SceneChangeBttn[] btns;
 
-    private static SceneChangeManager instance;
-    public static SceneChangeManager Instance { get => instance; }
+    private static ButtonManager instance;
+    public static ButtonManager Instance { get => instance; }
 
     private void Awake()
     {

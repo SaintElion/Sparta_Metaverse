@@ -50,3 +50,4 @@ public class GameManager : MonoBehaviour
         uiManager.SetRestart();
     }
 }
+

@@ -44,6 +44,6 @@ public class SceneChangeBttn : MonoBehaviour
 
     public void SceneChange()
     {
-        SceneChangeManager.Instance.ChangeScene(sceneName);
+        ButtonManager.Instance.ChangeScene(sceneName);
     }
 }

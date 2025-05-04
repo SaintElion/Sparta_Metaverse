@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class SceneChangeBttn : MonoBehaviour
 {
-    // 버튼 사진 2장 필요함, Sprite
     [SerializeField] private Sprite bttnUp;
     [SerializeField] private Sprite bttnDown;
     [SerializeField] private string sceneName;

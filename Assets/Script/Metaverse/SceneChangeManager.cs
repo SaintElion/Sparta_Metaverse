@@ -28,6 +28,9 @@ public class SceneChangeManager : MonoBehaviour
         SceneManager.LoadScene(name);
         //Debug.Log($"{name}으로 씬 변경 완료");
 
-        
+
     }
+
+    //상점,던전 추가
+    //로딩 애니메이션 추가
 }

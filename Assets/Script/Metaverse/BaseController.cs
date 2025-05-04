@@ -13,9 +13,6 @@ public class BaseController : MonoBehaviour
     //override는 재구현을 위해서 하는 거임. 기본적으로 부모 클래스도 함께 실행됨
     //virtual : 자식 클래스가 이걸 가져가서 재구성할 수 있게 하겠다
 
-
-    //readonly = 결과값을 한 번 계산해서 저장해두고 앞으로 따로 계산할 필요 없이 바로 사용할 수 있게 해줌 -> 최적화
-    //StringToHash = 문자열을 고유한 해시값(int)으로 바꿈. 해시값 딱 한 번 바꾸고 readonly로 저장해서 빠른 검색을 할 수 있게 만듦
     protected Rigidbody2D rigidbodi;
     protected AnimationHandler animationHandler;
 
@@ -73,4 +70,5 @@ public class BaseController : MonoBehaviour
 
         spriteRenderer.flipX = isLeft;
     }
+
 }

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 
-public class SceneChangeBttn : ButtonManager
+public class SceneChangeBttn : MonoBehaviour
 {
     // 버튼 사진 2장 필요함, Sprite
     [SerializeField] private Sprite bttnUp;
     [SerializeField] private Sprite bttnDown;
+    [SerializeField] private string sceneName;
 
     private SpriteRenderer spriteRenderer;
 
@@ -17,17 +20,17 @@ public class SceneChangeBttn : ButtonManager
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) PressBttn();
     }
 
-    void PressBttn()
+    private void PressBttn()
     {
         //Debug.Log("버튼 작동");
 
         BttnDown();
-        //씬 변경
+        SceneChange();
     }
 
     public void BttnUp()
@@ -38,5 +41,10 @@ public class SceneChangeBttn : ButtonManager
     public void BttnDown()
     {
         spriteRenderer.sprite = bttnDown;
+    }
+
+    public void SceneChange()
+    {
+        SceneChangeManager.Instance.ChangeScene(sceneName);
     }
 }

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
 {
+    //readonly = 결과값을 한 번 계산해서 저장해두고 앞으로 따로 계산할 필요 없이 바로 사용할 수 있게 해줌 -> 최적화
+    //StringToHash = 문자열을 고유한 해시값(int)으로 바꿈. 해시값 딱 한 번 바꾸고 readonly로 저장해서 빠른 검색을 할 수 있게 만듦
+
     private static readonly int isMoving = Animator.StringToHash("isMoving");
+    private static readonly int isCollision = Animator.StringToHash("isCollision");
     public Animator animator;
 
     public void Awake()
@@ -15,5 +19,10 @@ public class AnimationHandler : MonoBehaviour
     public void MoveAni(Vector2 move)
     {
         animator.SetBool(isMoving, move.magnitude > 0.5f);
+    }
+    
+        public void StopAni(Vector2 move)
+    {
+        animator.SetTrigger(isCollision);
     }
 }

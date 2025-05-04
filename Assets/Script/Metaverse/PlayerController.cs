@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerController : BaseController
 {
     [Range(1.5f, 5f)] [SerializeField] private float runSpeed = 1.5f;
-    private Camera camera;
+    private Camera cam;
     protected override void Start() //상속받는 메서드에서도 protected 써줄 것
     {
-        camera = Camera.main; //메인 카메라를 찾아줌
+        cam = Camera.main; //메인 카메라를 찾아줌
                               //전역 초기화하지 않는 이유 = 런타임 중에 카메라를 찾아주기 때문에 Start()에서 초기화하는 게 좋음
     }
 
@@ -24,7 +24,7 @@ public class PlayerController : BaseController
         if (Input.GetKey(KeyCode.LeftShift)) moveDirection *= runSpeed; 
 
         Vector2 mousePosition = Input.mousePosition;
-        Vector2 worldPosition = camera.ScreenToWorldPoint(mousePosition); // camera.ScreenToWorldPoint(mousePosition) : 마우스 위치를 실제 게임 좌표로 변환해서 카메라에 넣음
+        Vector2 worldPosition = cam.ScreenToWorldPoint(mousePosition); // camera.ScreenToWorldPoint(mousePosition) : 마우스 위치를 실제 게임 좌표로 변환해서 카메라에 넣음
         lookDirection = (worldPosition - (Vector2)transform.position);
 
         // 마우스 위치와 캐릭터 위치의 거리에 따라 lookDirection on/off

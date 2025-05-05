@@ -3,37 +3,22 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI restartText;
-    public Button lobbyButton;
+    static UIManager uiManager;
 
+    public static UIManager Instance { get => uiManager; }
 
-    void Start()
+    private void Awake()
     {
-        if
-        (
-            restartText == null ||
-            scoreText == null ||
-            lobbyButton == null
-        )   Debug.Log("UI component(s) of MiniGame Canvas is Null");
-
-        restartText.gameObject.SetActive(false);
-        lobbyButton.gameObject.SetActive(false);
+        if (Instance == null)
+        {
+            uiManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
     }
-
-    public void SetRestart()
-    {
-        restartText.gameObject.SetActive(true);
-        lobbyButton.gameObject.SetActive(true);
-    }
-
-    public void UpdateScore(int score)
-    {
-        scoreText.text = score.ToString();
-    }
-
 }
 

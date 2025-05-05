@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    GameManager gameManager;
+    FlapBirdGameManager gameManager;
     private Animator animator;
     private Rigidbody2D rigidbodi;
 
@@ -19,8 +19,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameManager.Instance;
-
+        gameManager = FindObjectOfType<FlapBirdGameManager>();
         animator = GetComponentInChildren<Animator>();
         rigidbodi = GetComponent<Rigidbody2D>();
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacles : MonoBehaviour
 {
-    GameManager gameManager;
+    FlapBirdGameManager gameManager;
     public float highPositionY = 1f;
     public float lowPositionY = -1f;
 
@@ -18,7 +18,7 @@ public class Obstacles : MonoBehaviour
 
     public void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = FindObjectOfType<FlapBirdGameManager>();
     }
 
     public Vector3 SetRandomPlace(Vector3 lastPosition, int obestacleCount)

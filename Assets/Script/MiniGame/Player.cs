@@ -16,9 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField] private bool godMode = false;
     private bool isFlap = false;
 
-    private bool isDead = false;
-    public bool IsDead { get => isDead; }
-
     void Start()
     {
         gameManager = FindObjectOfType<FlapBirdGameManager>();
@@ -28,7 +25,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (isDead)
+        if (gameManager.isDead)
         {
             if (deathCooldown <= 0)
             {
@@ -44,7 +41,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isDead) return;
+        if (gameManager.isDead) return;
 
         //rigidbodi의 Rigidbody2D의 이동량 형식을 velocity라는 변수에 넣는다.
         Vector3 velocity = rigidbodi.velocity;
@@ -69,10 +66,9 @@ public class Player : MonoBehaviour
     {
         if (godMode) return;
 
-        if (isDead) return;
+        if (gameManager.isDead) return;
         
         //Debug.Log("부딪힘");
-        isDead = true;
         deathCooldown = 3f;
         animator.SetBool("isDie", true);
         gameManager.gameOver();

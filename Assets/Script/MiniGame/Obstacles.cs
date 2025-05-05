@@ -39,6 +39,8 @@ public class Obstacles : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (gameManager.isDead == true) return;
+
         Player player = collision.GetComponent<Player>();
 
         if (player) gameManager.AddScoreFlapBird(1);

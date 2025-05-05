@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     public float deathCooldown = 0f;
 
     [SerializeField] private bool godMode = false;
-    private bool isDead = false;
     private bool isFlap = false;
-    // Start is called before the first frame update
+
+    private bool isDead = false;
+    public bool IsDead { get => isDead; }
+
     void Start()
     {
         gameManager = FindObjectOfType<FlapBirdGameManager>();
@@ -24,7 +26,6 @@ public class Player : MonoBehaviour
         rigidbodi = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (isDead)
@@ -69,10 +70,11 @@ public class Player : MonoBehaviour
         if (godMode) return;
 
         if (isDead) return;
-            //Debug.Log("부딪힘");
-            isDead = true;
-            deathCooldown = 3f;
-            animator.SetBool("isDie", true);
-            gameManager.gameOver();
+        
+        //Debug.Log("부딪힘");
+        isDead = true;
+        deathCooldown = 3f;
+        animator.SetBool("isDie", true);
+        gameManager.gameOver();
     }
 }

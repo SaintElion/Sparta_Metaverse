@@ -9,27 +9,32 @@ public class FlapBirdUIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI bestScoreText;
-    public TextMeshProUGUI restartText;
-    public Button lobbyButton;
+    [SerializeField] private TextMeshProUGUI endText;
+    [SerializeField] private GameObject UIPanel;
 
-    public void Start()
+    private void Start()
     {
-        if (restartText == null || scoreText == null || lobbyButton == null)
+        if (UIPanel == null || scoreText == null || bestScoreText == null)
         {
             Debug.Log("UI component(s) of MiniGame Canvas is Null");
         }
 
-        restartText.gameObject.SetActive(false);
-        lobbyButton.gameObject.SetActive(false);
+        bestScoreText.gameObject.SetActive(false);
+        UIPanel.gameObject.SetActive(false);
     }
-    public void SetRestart()
+    public void GameOverView()
     {
-        restartText.gameObject.SetActive(true);
-        lobbyButton.gameObject.SetActive(true);
+        bestScoreText.gameObject.SetActive(true);
+        UIPanel.gameObject.SetActive(true);
     }
 
     public void UpdateScore(int score)
     {
         scoreText.text = score.ToString();
+    }
+
+    public void UpdateBestScore(int bestScore)
+    {
+        bestScoreText.text = bestScore.ToString();
     }
 }

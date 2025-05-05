@@ -25,16 +25,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.isDead)
+        if (!gameManager.isDead)
         {
-            if (deathCooldown <= 0)
-            {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) gameManager.RestartGame();
-            }
-            else  deathCooldown -= Time.deltaTime;
-        }
-        else
-        {
+            deathCooldown -= Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) isFlap = true;
         }
     }

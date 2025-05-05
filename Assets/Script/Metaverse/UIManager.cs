@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     static UIManager uiManager;
-
     public static UIManager Instance { get => uiManager; }
 
     private void Awake()
@@ -19,6 +18,19 @@ public class UIManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+    }
+
+    //-----------------------------------------------------------------------------------------------------------
+
+    public TextMeshProUGUI moneyText;
+
+    public void Start()
+    {
+        
+    }
+    public void MoneyView(int Money)
+    {
+        moneyText.text = Money.ToString();
     }
 }
 

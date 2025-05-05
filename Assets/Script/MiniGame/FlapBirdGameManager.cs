@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,7 +23,6 @@ public class FlapBirdGameManager : MonoBehaviour
     {
         flapBirdUIManager = FindObjectOfType<FlapBirdUIManager>();
         flapBirdUIManager.UpdateScore(0);
-        flapBirdUIManager.UpdateBestScore(0);
     }
 
     // private void Update()
@@ -35,27 +35,24 @@ public class FlapBirdGameManager : MonoBehaviour
         currentScore += score;
         //Debug.Log($"Score = {currentScore}");
         flapBirdUIManager.UpdateScore(currentScore);
+        GameManager.Instance.Moneies(+100);
     }
-
-    public void Update()
+    public void ScoreDelete()
     {
-        if (!isGameStart && Input.anyKeyDown)
-        {
-            isGameStart = true;
-            GameStart();
-        }
+        PlayerPrefs.DeleteKey("BestScoreRecord");
+        flapBirdUIManager.UpdateBestScore(0);
     }
 
     public void GameStart()
     {
-        flapBirdUIManager.StartPanelClose(); //추후 수정 필요 (GameManager에서 UIManager를 호출함)
+        flapBirdUIManager.StartPanelClose(); 
         Time.timeScale = 1f;
     }
 
     public void gameOver()
     {
         isDead = true;
-        int scoreRecord = PlayerPrefs.GetInt("BestScoreRecord"); //최고점수 불러오기
+        int scoreRecord = PlayerPrefs.GetInt("BestScoreRecord");
 
         if (currentScore > scoreRecord)
         {
@@ -79,6 +76,11 @@ public class FlapBirdGameManager : MonoBehaviour
 
     public void ToLobby()
     {
+        PlayerPrefs.SetInt("Money", GameManager.Instance.Money);
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene("Lobby"); //로비로 이동
     }
+
+
 }

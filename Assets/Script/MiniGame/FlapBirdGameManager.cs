@@ -48,7 +48,7 @@ public class FlapBirdGameManager : MonoBehaviour
 
     public void GameStart()
     {
-        flapBirdUIManager.StartPanel(); //추후 수정 필요 (GameManager에서 UIManager를 호출함)
+        flapBirdUIManager.StartPanelClose(); //추후 수정 필요 (GameManager에서 UIManager를 호출함)
         Time.timeScale = 1f;
     }
 

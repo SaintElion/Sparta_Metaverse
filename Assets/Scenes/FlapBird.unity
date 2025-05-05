@@ -383,7 +383,8 @@ MonoBehaviour:
   scoreText: {fileID: 949615240}
   bestScoreText: {fileID: 273016375}
   hideEndText: {fileID: 1923051489}
-  UIPanel: {fileID: 103984144}
+  uiPanel: {fileID: 103984144}
+  startPanel: {fileID: 1936054360}
 --- !u!1 &103984144
 GameObject:
   m_ObjectHideFlags: 0

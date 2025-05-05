@@ -27,9 +27,9 @@ public class FlapBirdUIManager : MonoBehaviour
         startPanel.gameObject.SetActive(true);
     }
 
-    public void StartPanel()
+    public void StartPanelClose()
     {
-
+        startPanel.gameObject.SetActive(false);
     }
 
     public void GameOverView()

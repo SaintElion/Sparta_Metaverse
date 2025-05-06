@@ -35,7 +35,7 @@ public class FlapBirdGameManager : MonoBehaviour
         currentScore += score;
         //Debug.Log($"Score = {currentScore}");
         flapBirdUIManager.UpdateScore(currentScore);
-        GameManager.Instance.Moneies(+100);
+        GameManager.Instance.Money += 100;
     }
     public void ScoreDelete()
     {

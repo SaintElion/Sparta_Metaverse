@@ -21,7 +21,17 @@ public class GameManager : MonoBehaviour
     //-----------------------------------------------------------------------------------------------------------
 
     private int money;
-    public int Money { get => money; set => money = value; }
+    public int Money
+    {
+        get => money;
+        set
+        {
+            money = value;
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.Save();
+            UIManager.Instance.MoneyView(money);
+        }
+    }
 
     private string sceneName;
     public string SceneName { get => sceneName; }
@@ -29,7 +39,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         money = PlayerPrefs.GetInt("Money");
-        UIManager.Instance.MoneyView(Money);
+        UIManager.Instance.MoneyView(money);
     }
 
     public void GoingStage(string name)
@@ -42,13 +52,6 @@ public class GameManager : MonoBehaviour
     public void GoingLobby()
     {
         SceneManager.LoadScene("Loading");
-    }
-    
-    public void Moneies(int moneies)
-    {
-        Debug.Log(Money);
-        Money += moneies;
-        UIManager.Instance.MoneyView(Money);
     }
 }
 

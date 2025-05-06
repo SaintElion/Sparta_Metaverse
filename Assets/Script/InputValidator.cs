@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 //----------------------------------------------------------------------------------------------
 //------------------------------------ComponentChecker------------------------------------------
@@ -55,6 +56,25 @@ public static class ComponentChecker
         if (spriteRenderer == null)
         {
             Debug.Log($"{owner.GetType().Name} does not have an SpriteRenderer");
+            return false;
+        }
+        else return true;
+    }
+
+    public static bool ComponentCheck(Transform transForm, MonoBehaviour owner)
+    {
+        if (transForm == null)
+        {
+            Debug.Log($"{owner.GetType().Name} does not have an Transform");
+            return false;
+        }
+        else return true;
+    }
+    public static bool ComponentCheck(Text text, MonoBehaviour owner)
+    {
+        if (text == null)
+        {
+            Debug.Log($"{owner.GetType().Name} does not have an Transform");
             return false;
         }
         else return true;

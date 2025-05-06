@@ -79,7 +79,7 @@ public class FlapBirdGameManager : MonoBehaviour
         PlayerPrefs.SetInt("Money", GameManager.Instance.Money);
         PlayerPrefs.Save();
 
-        GameManager.Instance.GoingLobby();
+        GameManager.Instance.GoingStage("Lobby");
     }
 
 

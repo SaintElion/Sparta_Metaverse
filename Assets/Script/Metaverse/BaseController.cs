@@ -28,6 +28,8 @@ public class BaseController : MonoBehaviour
     {
         rigidbodi = GetComponent<Rigidbody2D>();
         animationHandler = GetComponent<AnimationHandler>();
+
+        ComponentChecker.ComponentCheck(rigidbodi, this);
     }
 
     protected virtual void Start()

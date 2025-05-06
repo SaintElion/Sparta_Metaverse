@@ -23,11 +23,7 @@ public class UIManager : MonoBehaviour
     //-----------------------------------------------------------------------------------------------------------
 
     public TextMeshProUGUI moneyText;
-
-    public void Start()
-    {
-        
-    }
+    
     public void MoneyView(int Money)
     {
         moneyText.text = Money.ToString();

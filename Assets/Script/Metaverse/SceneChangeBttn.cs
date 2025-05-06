@@ -17,6 +17,7 @@ public class SceneChangeBttn : MonoBehaviour
     public void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ComponentChecker.ComponentCheck(spriteRenderer, this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

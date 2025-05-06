@@ -11,6 +11,7 @@ public class LoadingAnimation : MonoBehaviour
     public void Awake()
     {
         animator = GetComponent<Animator>();
+        ComponentChecker.ComponentCheck(animator, this);
     }
     public void Start()
     {

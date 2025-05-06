@@ -13,6 +13,7 @@ public class LoadingText : MonoBehaviour
     private void Start()
     {
         loadingText = GetComponent<TextMeshProUGUI>();
+        ComponentChecker.ComponentCheck(loadingText, this);
         string text = loadingText.text;
         StartCoroutine(LoadingTxt(text));
     }

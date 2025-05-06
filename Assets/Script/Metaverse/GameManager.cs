@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void GoingLobby()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("Loading");
     }
     
     public void Moneies(int moneies)

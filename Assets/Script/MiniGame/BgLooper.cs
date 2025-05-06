@@ -26,12 +26,12 @@ public class BgLooper : MonoBehaviour
         if (collision.CompareTag("MiniGame_Enviro"))
         {
             //Debug.Log("배경에 닿음");
-            float whidthOfBgObj = ((BoxCollider2D)collision).size.x; //부딪힌 물체의 크기를 구하려면 콜라이더 형태를 명시해줘야 함
+            float whidthOfBgObj = ((BoxCollider2D)collision).size.x; //부딪힌 물체의 크기를 구하려면 콜라이더 형태를 넣어줘야 함
             Vector3 pos = collision.transform.position;
 
             pos.x += whidthOfBgObj * numBgCount;
             collision.transform.position = pos;
-            return; // 백그라운드만 불러오는 상황에는 아래 메서드가 실행되지 않게 막아주기
+            return;
         }
 
         Obstacles obstacles = collision.GetComponent<Obstacles>();

@@ -14,6 +14,7 @@ public class AnimationHandler : MonoBehaviour
     public void Awake()
     {
         animator = GetComponentInChildren<Animator>(); //player 오브젝트에 넣을 스크립트이기 때문에 하위 오브젝트 검색해줘야 함 
+        ComponentChecker.ComponentCheck(animator, this);
     }
 
     public void MoveAni(Vector2 move)

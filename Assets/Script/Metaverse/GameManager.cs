@@ -32,11 +32,16 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.MoneyView(Money);
     }
 
-    public void ChangeScene(string name)
+    public void GoingStage(string name)
     {
         //Debug.Log($"{name}으로 씬 변경");
         sceneName = name;
         SceneManager.LoadScene("Loading");
+    }
+
+    public void GoingLobby()
+    {
+        SceneManager.LoadScene("Lobby");
     }
     
     public void Moneies(int moneies)

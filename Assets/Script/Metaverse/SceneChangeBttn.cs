@@ -44,6 +44,6 @@ public class SceneChangeBttn : MonoBehaviour
 
     public void SceneChange()
     {
-        GameManager.Instance.ChangeScene(sceneName); //버튼마다 이동할 Scene 지정해놓고 GameManager에서 변경
+        GameManager.Instance.GoingStage(sceneName); //버튼마다 이동할 Scene 지정해놓고 GameManager에서 변경
     }
 }

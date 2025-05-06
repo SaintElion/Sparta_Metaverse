@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     private int money;
     public int Money { get => money; set => money = value; }
 
+    private string sceneName;
+    public string SceneName { get => sceneName; }
+
     public void Start()
     {
         money = PlayerPrefs.GetInt("Money");
@@ -32,15 +35,15 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(string name)
     {
         //Debug.Log($"{name}으로 씬 변경");
-        SceneManager.LoadScene(name);
+        sceneName = name;
+        SceneManager.LoadScene("Loading");
     }
-
+    
     public void Moneies(int moneies)
     {
         Debug.Log(Money);
         Money += moneies;
         UIManager.Instance.MoneyView(Money);
-        
     }
 }
 

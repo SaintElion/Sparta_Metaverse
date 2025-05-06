@@ -22,7 +22,7 @@ public class AnimationHandler : MonoBehaviour
         animator.SetBool(isMoving, move.magnitude > 0.5f);
     }
     
-        public void StopAni(Vector2 move)
+    public void StopAni(Vector2 move)
     {
         animator.SetTrigger(isCollision);
     }

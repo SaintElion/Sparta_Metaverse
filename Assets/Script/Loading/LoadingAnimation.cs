@@ -6,7 +6,7 @@ using UnityEngine;
 public class LoadingAnimation : MonoBehaviour
 {
     private Animator animator;
-    private AnimationClip[] clips;
+    private AnimationClip[] clips; //애니메이션 클립 넣을 배열
 
     public void Start()
     {

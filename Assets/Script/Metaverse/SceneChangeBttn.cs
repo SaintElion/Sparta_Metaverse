@@ -14,10 +14,11 @@ public class SceneChangeBttn : MonoBehaviour
 
     //Awake = 컴포넌트 초기화할 때
     //Start = 다른 컴포넌트와 연결하거나 제어할 때
-    public void Awake()
+    public void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         ComponentChecker.ComponentCheck(spriteRenderer, this);
+        spriteRenderer.sprite = bttnUp;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,10 +34,7 @@ public class SceneChangeBttn : MonoBehaviour
         SceneChange();
     }
 
-    public void BttnUp()
-    {
-        spriteRenderer.sprite = bttnUp;
-    }
+    public void BttnUp() => spriteRenderer.sprite = bttnUp; //아래 BttnDown() 형태의 축약형
 
     public void BttnDown()
     {

@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class CameraFollowing : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    [SerializeField] private MainPlayer target;
+
+    void Start()
+    {
+        target = FindObjectOfType<MainPlayer>();
+        if (target == null) return;
+    }
 
     void Update()
     {

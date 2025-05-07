@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -113,16 +114,21 @@ public class MainPlayer : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) //이벤트
     {
-        if (scene.name == "FalpBird" || scene.name == "Loading")
+        switch (scene.name)
         {
-            HideCharacter();
-            if (scene.name == "FlapBird") return;
-        }
-        else
-        {
-            ShowCharacter();
-            cam = Camera.main;
-            transform.position = Vector3.zero; //시작 위치 0으로 고정
+            case "FlapBird":
+                HideCharacter();
+                return;
+
+            case "Loading":
+                HideCharacter();
+                break;
+                
+            default:
+                ShowCharacter();
+                cam = Camera.main;
+                transform.position = Vector3.zero; //시작 위치 0으로 고정
+                return;
         }
     }
 

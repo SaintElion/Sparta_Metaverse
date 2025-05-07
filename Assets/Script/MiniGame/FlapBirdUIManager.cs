@@ -15,11 +15,6 @@ public class FlapBirdUIManager : MonoBehaviour
 
     private void Start()
     {
-        if (uiPanel == null || startPanel == null || scoreText == null || bestScoreText == null || hideEndText == null)
-        {
-            Debug.Log("UI component(s) of MiniGame Canvas is Null");
-        }
-
         bestScoreText.gameObject.SetActive(false);
         uiPanel.gameObject.SetActive(false);
         hideEndText.gameObject.SetActive(false);

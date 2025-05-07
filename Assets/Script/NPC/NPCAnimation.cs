@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCAnimation : MonoBehaviour
 {
     private static readonly int isTrigger = Animator.StringToHash("isTrigger");
-    Animator animator;
+    private Animator animator;
     private void Awake()
     {
         animator = GetComponent<Animator>();

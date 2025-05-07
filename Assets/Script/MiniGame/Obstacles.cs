@@ -19,6 +19,7 @@ public class Obstacles : MonoBehaviour
     public void Start()
     {
         gameManager = FindObjectOfType<FlapBirdGameManager>();
+        ComponentChecker.ComponentCheck(gameManager, this);
     }
 
     public Vector3 SetRandomPlace(Vector3 lastPosition, int obestacleCount)

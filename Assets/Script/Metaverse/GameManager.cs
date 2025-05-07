@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void GoingStage(string name)
     {
+        UIManager.Instance.HideUI();
         //Debug.Log($"{name}으로 씬 변경");
         sceneName = name;
         SceneManager.LoadScene("Loading");
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
     public void GoingLobby()
     {
         SceneManager.LoadScene("Loading");
+        UIManager.Instance.ShowUI();
     }
 }
 

@@ -22,6 +22,7 @@ public class FlapBirdGameManager : MonoBehaviour
     private void Start()
     {
         flapBirdUIManager = FindObjectOfType<FlapBirdUIManager>();
+        ComponentChecker.ComponentCheck(flapBirdUIManager, this);
         flapBirdUIManager.UpdateScore(0);
     }
 
@@ -76,9 +77,6 @@ public class FlapBirdGameManager : MonoBehaviour
 
     public void ToLobby()
     {
-        PlayerPrefs.SetInt("Money", GameManager.Instance.Money);
-        PlayerPrefs.Save();
-
         GameManager.Instance.GoingStage("Lobby");
     }
 

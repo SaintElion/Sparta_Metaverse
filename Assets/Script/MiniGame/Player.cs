@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<FlapBirdGameManager>();
+        ComponentChecker.ComponentCheck(gameManager, this);
         
         animator = GetComponentInChildren<Animator>();
         ComponentChecker.ComponentCheck(animator, this);

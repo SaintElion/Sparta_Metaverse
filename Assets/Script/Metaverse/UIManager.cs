@@ -23,10 +23,20 @@ public class UIManager : MonoBehaviour
     //-----------------------------------------------------------------------------------------------------------
 
     public TextMeshProUGUI moneyText;
-    
+    public TextMeshProUGUI shiftToRun;
     public void MoneyView(int Money)
     {
         moneyText.text = Money.ToString();
+    }
+    public void HideUI()
+    {
+        shiftToRun.gameObject.SetActive(false);
+    }
+
+    public void ShowUI()
+    {
+        shiftToRun.gameObject.SetActive(true);
+        ComponentChecker.ComponentCheck(shiftToRun, this);
     }
 }
 

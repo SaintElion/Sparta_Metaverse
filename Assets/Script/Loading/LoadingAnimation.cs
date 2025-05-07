@@ -15,6 +15,7 @@ public class LoadingAnimation : MonoBehaviour
     }
     public void Start()
     {
+        MainPlayer.Instance.HideCharacter();
         clips = animator.runtimeAnimatorController.animationClips; //애니메이터 안의 모든 애니메이션 클립을 가져옴
         AnimationChoice();
     }

@@ -6,18 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager gameManager;
-    public static GameManager Instance { get => gameManager; }
+    public static GameManager Instance { get; private set; }
     private void Awake()
     {
         if (Instance == null)
         {
-            gameManager = this; //게임매니저가 Awake에서 초기화되므로 싱글톤을 사용할 땐 Start()에서
+            Instance = this; //게임매니저가 Awake에서 초기화되므로 싱글톤을 사용할 땐 Start()에서
             DontDestroyOnLoad(gameObject); //씬이 여러개면 DontDestroy로 싱글톤 유지
         }
-        else Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
+    //-----------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------
     //-----------------------------------------------------------------------------------------------------------
 
     private int money;

@@ -12,7 +12,7 @@ public class CameraFollowingShop : MonoBehaviour
         Camera.main.GetComponent<CameraFollowingShop>().Target(MainPlayer.Instance.transform); //씬 시작되고 갱신된 캐릭터 트랜스폼 가져옴
     }
 
-    private void Target(Transform t) // 캐릭터 트랜스폼을 변수에 저장
+    private void Target(Transform t)
     {
         target = t;
     }

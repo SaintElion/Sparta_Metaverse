@@ -10,7 +10,7 @@ public class CameraFollowingMG : MonoBehaviour
     void Update()
     {
         Vector3 targeting = target.transform.position;
-        Vector3 cameraFollowing = new Vector3(targeting.x, 0, -10); //카메라 Z축 안맞추면 튕겨나감
+        Vector3 cameraFollowing = new Vector3(targeting.x, 0, -10);
         transform.position = cameraFollowing;
     }
 }

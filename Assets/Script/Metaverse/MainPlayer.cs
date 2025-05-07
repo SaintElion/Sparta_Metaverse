@@ -43,6 +43,8 @@ public class MainPlayer : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Camera cam;
 
+    private  weaponPivot;
+
     private void Start()
     {
         rigidbodi = GetComponent<Rigidbody2D>();
@@ -103,10 +105,10 @@ public class MainPlayer : MonoBehaviour
 
     private void Rotate(Vector2 look)
     {
-        //float rotZ = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg;
-        //bool isLeft = Mathf.Abs(rotZ) > 90f;
+        float rotZ = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg;
+        bool isLeft = Mathf.Abs(rotZ) > 90f;
 
-        bool isLeft = look.x < 0f;
+        //bool isLeft = look.x < 0f;
 
         spriteRenderer.flipX = isLeft;
     }
